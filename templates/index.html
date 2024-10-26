@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1.1rem;
+            resize: none;
+            outline: none;
+        }
+        textarea:focus {
+            border-color: #4caf50;
+        }
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .prediction {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1.2rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Spam Detection</h1>
+        <form action="/" method="POST">
+            <label for="message">Enter your message:</label><br><br>
+            <textarea name="message" placeholder="Type your message here...">{{ message }}</textarea><br><br>
+            <input type="submit" value="Validate">
+        </form>
+
+        {% if prediction %}
+        <div class="prediction">
+            <h2>Prediction: {{ prediction }}</h2>
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
